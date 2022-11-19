@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Browser Detection</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="dz.png" type="image/x-icon">
+  </head>
+  <body>
+    <div class="wrapper">
+      <h2>Browser:</h2>
+
+      <div class="logos">
+        <img class="chrome" src="logos/chrome.png" alt="chrome" title="Google Chrome" style="height: 50px; width: 50px;">
+        <img class="firefox" src="logos/firefox.png" alt="firefox" title="Mozilla Firefox" style="height: 50px; width: 50px;">
+        <img class="edge" src="logos/edge.png" alt="edge" title="Microsoft Edge" style="height: 50px; width: 50px;">
+        <img class="opera" src="logos/opera.png" alt="opera" title="Opera" style="height: 50px; width: 50px;">
+        <img class="safari" src="logos/safari.png" alt="safari" title="Apple Safari" style="height: 50px; width: 50px;">
+      </div>
+    </div>
+
+    <script>
+      let userAgent = navigator.userAgent;
+      let browser;
+      if(userAgent.match(/edg/i)){
+        browser = "edge";
+      }else if(userAgent.match(/firefox|fxios/i)){
+        browser = "firefox";
+      }else if(userAgent.match(/opr\//i)){
+        browser = "opera";
+      }else if(userAgent.match(/chrome|chromium|crios/i)){
+        browser = "chrome";
+      }else if(userAgent.match(/safari/i)){
+        browser = "safari";
+      }else{
+        alert("Other browser");
+      }
+      const logo = document.querySelector(`.logos .${browser}`);
+      if(logo){
+        logo.style.opacity = "1";
+      }
+    </script>
+
+  </body>
+</html>
